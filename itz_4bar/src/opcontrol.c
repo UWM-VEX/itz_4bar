@@ -40,6 +40,21 @@ void operatorControl()
 	while (true)
 	{
 		tankDrive(robotDrive, OIGetDriveLeft(), OIGetDriveRight());
+		liftAtSpeed(robotLift, OIGetLift());
+		wristAtSpeed(robotWrist, OIGetWrist());
+
+		if(OIOpenClaw())
+		{
+			openClaw(robotClaw);
+		}
+		else if(OICloseClaw())
+		{
+			closeClaw(robotClaw);
+		}
+		else
+		{
+			stopClaw(robotClaw);
+		}
 
 		delay(25);
 	}

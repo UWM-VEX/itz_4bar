@@ -15,5 +15,8 @@
 #define OUT 1
 
 Drive * robotDrive;
+Lift * robotLift;
+Wrist * robotWrist;
+Claw * robotClaw;
 
 #endif /* INCLUDE_ROBOT_H_ */

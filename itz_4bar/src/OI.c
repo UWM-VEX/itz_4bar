@@ -26,3 +26,23 @@ int OIGetDriveX()
 {
 	return joystickGetAnalog(1, 4);
 }
+
+int OIGetLift()
+{
+	return joystickGetAnalog(2,3);
+}
+
+int OIGetWrist()
+{
+	return joystickGetAnalog(2,4);
+}
+
+bool OIOpenClaw()
+{
+	return joystickGetDigital(2, 5, JOY_UP);
+}
+
+bool OICloseClaw()
+{
+	return joystickGetDigital(2, 6, JOY_UP);
+}

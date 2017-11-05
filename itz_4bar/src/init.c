@@ -172,6 +172,9 @@ void initialize() {
 						initPantherMotor(3,0), initPantherMotor(8,1),
 						initPantherMotor(4,0), initPantherMotor(10,0),
 						encoderInit(1, 2, 0), encoderInit(3,4,0), gyroInit(1, 190));
+	robotLift = initLift(initPantherMotor(5,0), initPantherMotor(6,0));
+	robotWrist = initWrist(initPantherMotor(2,0), initPantherMotor(9,1));
+	robotClaw = initClaw(initPantherMotor(10,0));
 
 	lcdModeSelect();
 

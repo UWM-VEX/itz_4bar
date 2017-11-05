@@ -12,5 +12,9 @@ int OIGetDriveLeft();
 int OIGetDriveRight();
 int OIGetDriveY();
 int OIGetDriveX();
+int OIGetLift();
+int OIGetWrist();
+bool OIOpenClaw();
+bool OICloseClaw();
 
 #endif /* INCLUDE_OI_H_ */
