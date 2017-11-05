@@ -1,0 +1,5 @@
+##
+Four-Bar
+##
+Mode DO_NOTHING
+EndMode
