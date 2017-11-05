@@ -3,3 +3,6 @@ common.mk
 project.pros
 Makefile
 itz_4bar/firmware/*
+*.o
+*.bin
+*.elf
