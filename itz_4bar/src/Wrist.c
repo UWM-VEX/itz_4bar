@@ -1,13 +1,23 @@
 #include "main.h"
 
-Wrist* initWrist(PantherMotor leftMotor, PantherMotor rightMotor)
+Wrist* initWristIO(int frontLimitSwitch, int rearLimitSwitch)
 {
   Wrist* newWrist = (Wrist*) malloc(sizeof(Wrist));
 
-  newWrist->leftMotor = leftMotor;
-  newWrist->rightMotor = rightMotor;
+  pinMode(frontLimitSwitch, INPUT);
+  pinMode(rearLimitSwitch, INPUT);
+
+  newWrist->frontLimitSwitch = frontLimitSwitch;
+  newWrist->rearLimitSwitch = rearLimitSwitch;
 
   return newWrist;
+}
+
+void initWrist(Wrist* wrist, PantherMotor leftMotor, PantherMotor rightMotor, Encoder encoder)
+{
+  wrist->leftMotor = leftMotor;
+  wrist->rightMotor = rightMotor;
+  wrist->encoder = encoder;
 }
 
 void wristAtSpeed(Wrist* wrist, int speed)

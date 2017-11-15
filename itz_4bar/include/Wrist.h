@@ -6,9 +6,13 @@
 struct Wrist{
   PantherMotor leftMotor;
   PantherMotor rightMotor;
+  int frontLimitSwitch;
+  int rearLimitSwitch;
+  Encoder encoder;
 } typedef Wrist;
 
-Wrist* initWrist(PantherMotor leftMotor, PantherMotor rightMotor);
+Wrist* initWristIO(int frontLimitSwitch, int rearLimitSwitch);
+void initWrist(Wrist* wrist, PantherMotor leftMotor, PantherMotor rightMotor, Encoder encoder);
 void wristAtSpeed(Wrist* wrist, int speed);
 
 #endif
