@@ -4,16 +4,13 @@
  * Initializes a new drive object composed of six PantherMotors, two encoders and a gyro.
  */
 Drive* initDrive(PantherMotor frontLeftMotor, PantherMotor frontRightMotor,
-		PantherMotor middleLeftMotor, PantherMotor middleRightMotor,
 		PantherMotor rearLeftMotor, PantherMotor rearRightMotor,
 		Encoder leftEncoder, Encoder rightEncoder, Gyro gyro)
 {
-	Drive* newDrive = malloc(sizeof(Drive));
+	Drive* newDrive = (Drive*) malloc(sizeof(Drive));
 
 	newDrive->frontLeftMotor = frontLeftMotor;
 	newDrive->frontRightMotor = frontRightMotor;
-	newDrive->middleLeftMotor = middleLeftMotor;
-	newDrive->middleRightMotor = middleRightMotor;
 	newDrive->rearLeftMotor = rearLeftMotor;
 	newDrive->rearRightMotor = rearRightMotor;
 	newDrive->leftEncoder = leftEncoder;
@@ -27,8 +24,6 @@ void tankDrive(Drive* drive, int left, int right)
 {
 	setPantherMotor(drive->frontLeftMotor, left);
 	setPantherMotor(drive->frontRightMotor, right);
-	setPantherMotor(drive->middleLeftMotor, left);
-	setPantherMotor(drive->middleRightMotor, right);
 	setPantherMotor(drive->rearLeftMotor, left);
 	setPantherMotor(drive->rearRightMotor, right);
 }

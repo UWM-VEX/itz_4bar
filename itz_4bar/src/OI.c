@@ -34,15 +34,35 @@ int OIGetLift()
 
 int OIGetWrist()
 {
-	return joystickGetAnalog(2,4);
+	return joystickGetAnalog(2,1);
 }
 
-bool OIOpenClaw()
+bool OIInRoller()
 {
 	return joystickGetDigital(2, 5, JOY_UP);
 }
 
-bool OICloseClaw()
+bool OIOutRoller()
 {
 	return joystickGetDigital(2, 6, JOY_UP);
+}
+
+bool OIElevatorUp()
+{
+	return joystickGetDigital(2, 7, JOY_UP);
+}
+
+bool OIElevatorDown()
+{
+	return joystickGetDigital(2, 7, JOY_DOWN);
+}
+
+bool OIPuncherOut()
+{
+	return joystickGetDigital(2, 7, JOY_RIGHT);
+}
+
+bool OIPuncherIn()
+{
+	return joystickGetDigital(2, 7, JOY_LEFT);
 }

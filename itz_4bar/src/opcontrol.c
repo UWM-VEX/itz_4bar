@@ -43,17 +43,35 @@ void operatorControl()
 		liftAtSpeed(robotLift, OIGetLift());
 		wristAtSpeed(robotWrist, OIGetWrist());
 
-		if(OIOpenClaw())
+		if(OIInRoller())
 		{
-			openClaw(robotClaw);
+			inRoller(robotRoller);
 		}
-		else if(OICloseClaw())
+		else if(OIOutRoller())
 		{
-			closeClaw(robotClaw);
+			outRoller(robotRoller);
 		}
 		else
 		{
-			stopClaw(robotClaw);
+			stopRoller(robotRoller);
+		}
+
+		if(OIElevatorUp())
+		{
+			elevatorUp(robotGoalIntake);
+		}
+		else if(OIElevatorDown())
+		{
+			elevatorDown(robotGoalIntake);
+		}
+
+		if(OIPuncherOut())
+		{
+			puncherOut(robotGoalIntake);
+		}
+		else if(OIPuncherIn())
+		{
+			puncherIn(robotGoalIntake);
 		}
 
 		delay(25);
