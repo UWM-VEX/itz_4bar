@@ -44,7 +44,7 @@ bool OIInRoller()
 
 bool OIOutRoller()
 {
-	return joystickGetDigital(2, 6, JOY_UP);
+	return joystickGetDigital(2, 5, JOY_DOWN);
 }
 
 bool OIElevatorUp()
