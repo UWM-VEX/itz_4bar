@@ -10,17 +10,20 @@ GoalIntake* initGoalIntake(int elevatorSol, int puncherSol)
   newIntake->elevatorSol = elevatorSol;
   newIntake->puncherSol = puncherSol;
 
+  elevatorDown(newIntake);
+  puncherIn(newIntake);
+
   return newIntake;
 }
 
 void elevatorUp(GoalIntake* goalIntake)
 {
-  elevatorSet(goalIntake, HIGH);
+  elevatorSet(goalIntake, LOW);
 }
 
 void elevatorDown(GoalIntake* goalIntake)
 {
-  elevatorSet(goalIntake, LOW);
+  elevatorSet(goalIntake, HIGH);
 }
 
 void puncherOut(GoalIntake* goalIntake)
