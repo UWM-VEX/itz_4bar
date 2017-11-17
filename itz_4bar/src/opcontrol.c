@@ -17,9 +17,13 @@
 
 #include "main.h"
 
+bool wristManual;
+int wristPosition;
+
 void teleopInit()
 {
-
+	wristManual = true;
+	wristPosition = WRIST_MIDDLE;
 }
 
 /**
@@ -41,7 +45,38 @@ void operatorControl()
 	{
 		tankDrive(robotDrive, OIGetDriveLeft(), OIGetDriveRight());
 		liftAtSpeed(robotLift, OIGetLift());
-		wristAtSpeed(robotWrist, OIGetWrist(), OIGetWristSafetyOverride());
+
+		if(abs(OIGetWrist()) > 10)
+		{
+			wristManual = true;
+			wristAtSpeed(robotWrist, OIGetWrist(), OIGetWristSafetyOverride());
+		}
+		else if(OIGetWristFront())
+		{
+			wristManual = false;
+			wristPosition = WRIST_FRONT;
+			wristToPosition(robotWrist, WRIST_FRONT);
+		}
+		else if(OIGetWristMiddle())
+		{
+			wristManual = false;
+			wristPosition = WRIST_MIDDLE;
+			wristToPosition(robotWrist, WRIST_MIDDLE);
+		}
+		else if(OIGetWristRear())
+		{
+			wristManual = false;
+			wristPosition = WRIST_REAR;
+			wristToPosition(robotWrist, WRIST_REAR);
+		}
+		else if(wristManual)
+		{
+			wristAtSpeed(robotWrist, OIGetWrist(), OIGetWristSafetyOverride());
+		}
+		else
+		{
+			wristToPosition(robotWrist, wristPosition);
+		}
 
 		if(OIInRoller())
 		{

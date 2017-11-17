@@ -37,6 +37,21 @@ int OIGetWrist()
 	return joystickGetAnalog(2,1);
 }
 
+bool OIGetWristFront()
+{
+	return joystickGetDigital(2, 8, JOY_UP);
+}
+
+bool OIGetWristMiddle()
+{
+	return joystickGetDigital(2, 8, JOY_RIGHT);
+}
+
+bool OIGetWristRear()
+{
+	return joystickGetDigital(2, 8, JOY_DOWN);
+}
+
 bool OIGetWristSafetyOverride()
 {
 	return joystickGetDigital(2, 6, JOY_UP) && joystickGetDigital(2, 6, JOY_DOWN);
