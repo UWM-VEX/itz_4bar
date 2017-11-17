@@ -24,4 +24,9 @@ Mode TEST
 		autoGoalIntake(robotGoalIntake, true, true, true, true) &&
 		timeout(500)
 	}
+	autoWrist(robotWrist, WRIST_FRONT)
+	timeout(2000)
+	autoWrist(robotWrist, WRIST_MIDDLE)
+	timeout(2000)
+	autoWrist(robotWrist, WRIST_REAR)
 EndMode

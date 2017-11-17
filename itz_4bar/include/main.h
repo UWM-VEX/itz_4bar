@@ -55,6 +55,7 @@
 #include "GoalIntake.h"
 #include "Pot.h"
 #include "AutoGoalIntake.h"
+#include "AutoWrist.h"
 #include "Robot.h"
 #include "Auto.h"
 #include "DriveToWP.h"

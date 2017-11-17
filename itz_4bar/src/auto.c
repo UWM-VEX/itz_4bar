@@ -114,6 +114,11 @@ Timeout * command10;
 AutoGoalIntake * command11;
 Timeout * command12;
 
+AutoWrist * command13;
+Timeout * command14;
+AutoWrist * command15;
+Timeout * command16;
+AutoWrist * command17;
 
 // END OF DECLARATIONS
 
@@ -151,6 +156,11 @@ if(autonomousSelection == TEST)
 	command11 = initAutoGoalIntake(robotGoalIntake, true, true, true, true);
 	command12 = initTimeout(500);
 
+	command13 = initAutoWrist(robotWrist, WRIST_FRONT);
+	command14 = initTimeout(2000);
+	command15 = initAutoWrist(robotWrist, WRIST_MIDDLE);
+	command16 = initTimeout(2000);
+	command17 = initAutoWrist(robotWrist, WRIST_REAR);
 }
 	// END OF INSTANTIATIONS
 
@@ -230,6 +240,31 @@ void autonomousPeriodic()
 				autoGoalIntake(command11);
 				timeout(command12);
 				autonomousInfo.isFinished = (*command11).isFinished && (*command12).isFinished;
+				break;
+			case(9):
+				autoWrist(command13);
+
+				autonomousInfo.isFinished = (*command13).isFinished;
+				break;
+			case(10):
+				timeout(command14);
+
+				autonomousInfo.isFinished = (*command14).isFinished;
+				break;
+			case(11):
+				autoWrist(command15);
+
+				autonomousInfo.isFinished = (*command15).isFinished;
+				break;
+			case(12):
+				timeout(command16);
+
+				autonomousInfo.isFinished = (*command16).isFinished;
+				break;
+			case(13):
+				autoWrist(command17);
+
+				autonomousInfo.isFinished = (*command17).isFinished;
 				break;
 
 
