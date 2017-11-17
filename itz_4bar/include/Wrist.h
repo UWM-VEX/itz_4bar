@@ -13,6 +13,6 @@ struct Wrist{
 
 Wrist* initWristIO(int frontLimitSwitch, int rearLimitSwitch);
 void initWrist(Wrist* wrist, PantherMotor leftMotor, PantherMotor rightMotor, Encoder encoder);
-void wristAtSpeed(Wrist* wrist, int speed);
+void wristAtSpeed(Wrist* wrist, int speed, bool safetyOverride);
 
 #endif

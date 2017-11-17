@@ -14,6 +14,7 @@ int OIGetDriveY();
 int OIGetDriveX();
 int OIGetLift();
 int OIGetWrist();
+bool OIGetWristSafetyOverride();
 bool OIInRoller();
 bool OIOutRoller();
 bool OIElevatorUp();

@@ -41,7 +41,7 @@ void operatorControl()
 	{
 		tankDrive(robotDrive, OIGetDriveLeft(), OIGetDriveRight());
 		liftAtSpeed(robotLift, OIGetLift());
-		wristAtSpeed(robotWrist, OIGetWrist());
+		wristAtSpeed(robotWrist, OIGetWrist(), OIGetWristSafetyOverride());
 
 		if(OIInRoller())
 		{
