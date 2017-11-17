@@ -98,6 +98,23 @@ DriveToWPProperties * defaultProps;
 
 // START OF DECLARATIONS
 
+DriveToWP * command1;
+DriveToWP * command2;
+DriveToWP * command3;
+DriveToWP * command4;
+AutoGoalIntake * command5;
+Timeout * command6;
+
+AutoGoalIntake * command7;
+Timeout * command8;
+
+AutoGoalIntake * command9;
+Timeout * command10;
+
+AutoGoalIntake * command11;
+Timeout * command12;
+
+
 // END OF DECLARATIONS
 
 void autonomousInit()
@@ -115,6 +132,25 @@ void autonomousInit()
 	// START OF INSTANTIATIONS
 if(autonomousSelection == DO_NOTHING)
 {
+}
+if(autonomousSelection == TEST)
+{
+	command1 = initDriveToWP(defaultProps, 24, 0);
+	command2 = initDriveToWP(defaultProps, -24, 0);
+	command3 = initDriveToWP(defaultProps, 0, 90);
+	command4 = initDriveToWP(defaultProps, 0, -90);
+	command5 = initAutoGoalIntake(robotGoalIntake, false, false, false, false);
+	command6 = initTimeout(500);
+
+	command7 = initAutoGoalIntake(robotGoalIntake, false, true, false, true);
+	command8 = initTimeout(500);
+
+	command9 = initAutoGoalIntake(robotGoalIntake, true, false, true, false);
+	command10 = initTimeout(500);
+
+	command11 = initAutoGoalIntake(robotGoalIntake, true, true, true, true);
+	command12 = initTimeout(500);
+
 }
 	// END OF INSTANTIATIONS
 
@@ -145,6 +181,56 @@ void autonomousPeriodic()
 		case(DO_NOTHING):
 		switch(autonomousInfo.step)
 		{
+
+
+			default:
+				isAuto = 0;
+				break;
+		}
+		break;
+		case(TEST):
+		switch(autonomousInfo.step)
+		{
+			case(1):
+				driveToWP(command1);
+
+				autonomousInfo.isFinished = (*command1).isFinished;
+				break;
+			case(2):
+				driveToWP(command2);
+
+				autonomousInfo.isFinished = (*command2).isFinished;
+				break;
+			case(3):
+				driveToWP(command3);
+
+				autonomousInfo.isFinished = (*command3).isFinished;
+				break;
+			case(4):
+				driveToWP(command4);
+
+				autonomousInfo.isFinished = (*command4).isFinished;
+				break;
+			case(5):
+				autoGoalIntake(command5);
+				timeout(command6);
+				autonomousInfo.isFinished = (*command5).isFinished && (*command6).isFinished;
+				break;
+			case(6):
+				autoGoalIntake(command7);
+				timeout(command8);
+				autonomousInfo.isFinished = (*command7).isFinished && (*command8).isFinished;
+				break;
+			case(7):
+				autoGoalIntake(command9);
+				timeout(command10);
+				autonomousInfo.isFinished = (*command9).isFinished && (*command10).isFinished;
+				break;
+			case(8):
+				autoGoalIntake(command11);
+				timeout(command12);
+				autonomousInfo.isFinished = (*command11).isFinished && (*command12).isFinished;
+				break;
 
 
 			default:

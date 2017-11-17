@@ -54,6 +54,7 @@
 #include "Roller.h"
 #include "GoalIntake.h"
 #include "Pot.h"
+#include "AutoGoalIntake.h"
 #include "Robot.h"
 #include "Auto.h"
 #include "DriveToWP.h"

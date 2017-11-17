@@ -3,3 +3,25 @@ Four-Bar
 ##
 Mode DO_NOTHING
 EndMode
+Mode TEST
+	driveToWP(defaultProps, 24, 0)
+	driveToWP(defaultProps, -24, 0)
+	driveToWP(defaultProps, 0, 90)
+	driveToWP(defaultProps, 0, -90)
+	{	
+		autoGoalIntake(robotGoalIntake, false, false, false, false) &&
+		timeout(500)
+	}
+	{	
+		autoGoalIntake(robotGoalIntake, false, true, false, true) &&
+		timeout(500)
+	}
+	{	
+		autoGoalIntake(robotGoalIntake, true, false, true, false) &&
+		timeout(500)
+	}
+	{	
+		autoGoalIntake(robotGoalIntake, true, true, true, true) &&
+		timeout(500)
+	}
+EndMode
