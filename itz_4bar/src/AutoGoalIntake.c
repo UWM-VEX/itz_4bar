@@ -24,7 +24,8 @@ void autoGoalIntake(AutoGoalIntake* step)
 	{
 		elevatorDown(step->goalIntake);
 	}
-	else if(step->puncherOut)
+	
+	if(step->puncherOut)
 	{
 		puncherOut(step->goalIntake);
 	}

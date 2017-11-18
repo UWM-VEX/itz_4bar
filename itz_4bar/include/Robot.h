@@ -10,7 +10,7 @@
 
 #include "main.h"
 
-#define WHEEL_DIAMETER 3.25
+#define WHEEL_DIAMETER 2.5
 #define IN 0
 #define OUT 1
 
