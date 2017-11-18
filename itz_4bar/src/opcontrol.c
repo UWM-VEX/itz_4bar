@@ -44,7 +44,20 @@ void operatorControl()
 	while (true)
 	{
 		tankDrive(robotDrive, OIGetDriveLeft(), OIGetDriveRight());
-		liftAtSpeed(robotLift, OIGetLift());
+		
+		if(joystickGetDigital(1, 5, JOY_UP))
+		{
+			liftAtSpeed(robotLift, 127);
+		}
+		else if(joystickGetDigital(1, 5, JOY_DOWN))
+		{
+			liftAtSpeed(robotLift, -127);
+		}
+		else
+		{
+			liftAtSpeed(robotLift, 0);
+		}
+		
 
 		if(abs(OIGetWrist()) > 10)
 		{
