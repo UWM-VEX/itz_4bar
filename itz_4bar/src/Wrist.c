@@ -37,22 +37,38 @@ bool wristToPosition(Wrist* wrist, int position)
   {
     if(abs(encoderGet(wrist->encoder) - wrist->middle) < 50)
     {
+	  lcdSetBacklight(uart1, true);
       wristAtSpeed(wrist, 0, false);
       return true;
     }
-    else if(encoderGet(wrist->encoder) - wrist->middle > 0)
+    else if(encoderGet(wrist->encoder) - wrist->middle > 200)
     {
+	  lcdSetBacklight(uart1, false);
       wristAtSpeed(wrist, -70, false);
       return false;
     }
-    else
+	else if(encoderGet(wrist->encoder) - wrist->middle > 0)
     {
+	  lcdSetBacklight(uart1, false);
+      wristAtSpeed(wrist, -50, false);
+      return false;
+    }
+    else if(encoderGet(wrist->encoder) - wrist->middle < -200)
+    {
+	  lcdSetBacklight(uart1, false);
       wristAtSpeed(wrist, 70, false);
       return false;
     }
+	else
+	{
+	  lcdSetBacklight(uart1, false);
+	  wristAtSpeed(wrist, 50, false);
+      return false;
+	}
   }
   else
   {
+    lcdSetBacklight(uart1, false);
     wristAtSpeed(wrist, 0, false);
     return false;
   }
@@ -60,7 +76,7 @@ bool wristToPosition(Wrist* wrist, int position)
 
 void wristAtSpeed(Wrist* wrist, int speed, bool safetyOverride)
 {
-  if(digitalRead(wrist->frontLimitSwitch == LOW))
+  if(digitalRead(wrist->frontLimitSwitch) == LOW)
   {
     encoderReset(wrist->encoder);
   }
