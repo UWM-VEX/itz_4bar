@@ -29,12 +29,12 @@ int OIGetDriveX()
 
 int OIGetLift()
 {
-	return joystickGetAnalog(2,3);
+	return joystickGetAnalog(1,3);
 }
 
 int OIGetWrist()
 {
-	return joystickGetAnalog(2,1);
+	return -joystickGetAnalog(2,2);
 }
 
 bool OIGetWristFront()
